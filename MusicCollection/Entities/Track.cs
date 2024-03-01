@@ -13,6 +13,9 @@ namespace MusicCollection.Entities
         public string Duration { get; set; }
         public Playlist Playlist { get; set; }
         public int PlaylistId { get; set; }
+        public int? Rating { get; set; }
+        public int? CountOfReadings { get; set; }
+        public string Text { get; set; }
 
     }
 }

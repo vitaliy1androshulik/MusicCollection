@@ -63,7 +63,13 @@ namespace MusicCollection
                  .HasForeignKey(a => a.PlaylistId);
 
 
-            
+            modelBuilder.SeedCountry();
+            modelBuilder.SeedCategory();
+            modelBuilder.SeedGenre();
+            modelBuilder.SeedArtist();
+            modelBuilder.SeedPlaylist();
+            modelBuilder.SeedTrack();
+            modelBuilder.SeedAlbum();  
         }
     }
 }

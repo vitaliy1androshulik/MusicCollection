@@ -16,5 +16,6 @@ namespace MusicCollection.Entities
         public int ArtistId { get; set; }
         public Genre Genre { get; set; }
         public int GenreId { get; set; }
+        public int? Rating { get; set; }
     }
 }

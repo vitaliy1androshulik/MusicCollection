@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MusicCollection;
 
@@ -11,9 +12,11 @@ using MusicCollection;
 namespace MusicCollection.Migrations
 {
     [DbContext(typeof(MusicCollectionDBContext))]
-    partial class MusicCollectionDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240223144044_AddInformation")]
+    partial class AddInformation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,9 +63,6 @@ namespace MusicCollection.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int?>("Rating")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ArtistId");
@@ -78,8 +78,7 @@ namespace MusicCollection.Migrations
                             ArtistId = 1,
                             DataCreate = new DateTime(2019, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             GenreId = 2,
-                            Name = "Loved by me",
-                            Rating = 5
+                            Name = "Loved by me"
                         },
                         new
                         {
@@ -87,8 +86,7 @@ namespace MusicCollection.Migrations
                             ArtistId = 2,
                             DataCreate = new DateTime(2017, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             GenreId = 1,
-                            Name = "Intresting world",
-                            Rating = 3
+                            Name = "Intresting world"
                         },
                         new
                         {
@@ -96,8 +94,7 @@ namespace MusicCollection.Migrations
                             ArtistId = 1,
                             DataCreate = new DateTime(2022, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             GenreId = 3,
-                            Name = "Ukraine the best",
-                            Rating = 4
+                            Name = "Ukraine the best"
                         },
                         new
                         {
@@ -105,8 +102,7 @@ namespace MusicCollection.Migrations
                             ArtistId = 4,
                             DataCreate = new DateTime(2015, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             GenreId = 4,
-                            Name = "Comeback",
-                            Rating = 5
+                            Name = "Comeback"
                         });
                 });
 
@@ -345,9 +341,6 @@ namespace MusicCollection.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CountOfReadings")
-                        .HasColumnType("int");
-
                     b.Property<string>("Duration")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -361,13 +354,6 @@ namespace MusicCollection.Migrations
                     b.Property<int>("PlaylistId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Rating")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Text")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("PlaylistId");
@@ -378,42 +364,30 @@ namespace MusicCollection.Migrations
                         new
                         {
                             Id = 1,
-                            CountOfReadings = 10000,
                             Duration = "2:32",
                             Name = "Love",
-                            PlaylistId = 1,
-                            Rating = 1,
-                            Text = "Hello, very intresting. Goodbye"
+                            PlaylistId = 1
                         },
                         new
                         {
                             Id = 2,
-                            CountOfReadings = 100000,
                             Duration = "3:32",
                             Name = "My country",
-                            PlaylistId = 2,
-                            Rating = 5,
-                            Text = "Goodbye Poland"
+                            PlaylistId = 2
                         },
                         new
                         {
                             Id = 3,
-                            CountOfReadings = 7500,
                             Duration = "4:10",
                             Name = "My little home",
-                            PlaylistId = 1,
-                            Rating = 3,
-                            Text = "Hello my home, how are you?"
+                            PlaylistId = 1
                         },
                         new
                         {
                             Id = 4,
-                            CountOfReadings = 75000,
                             Duration = "1:50",
                             Name = "Gopdbye! Hello!",
-                            PlaylistId = 3,
-                            Rating = 5,
-                            Text = "Gopdbye! Hello!"
+                            PlaylistId = 3
                         });
                 });
 

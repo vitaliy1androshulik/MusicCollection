@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace MusicCollection.Helper
 {
-    public class DBInitializer
+    public static class DBInitializer
     {
-        public static void SeedCountry(ModelBuilder modelBuilder)
+        public static void SeedCountry(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Country>().HasData(new Country[]
             { 
@@ -36,7 +36,7 @@ namespace MusicCollection.Helper
                 }
             });
         }
-        public static void SeedCategory(ModelBuilder modelBuilder)
+        public static void SeedCategory(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Category>().HasData(new Category[]
             {
@@ -62,7 +62,7 @@ namespace MusicCollection.Helper
                 }
             });
         }
-        public static void SeedGenre(ModelBuilder modelBuilder)
+        public static void SeedGenre(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Genre>().HasData(new Genre[]
             {
@@ -88,7 +88,7 @@ namespace MusicCollection.Helper
                 }
             });
         }
-        public static void SeedArtist(ModelBuilder modelBuilder)
+        public static void SeedArtist(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Artist>().HasData(new Artist[]
             {
@@ -122,7 +122,7 @@ namespace MusicCollection.Helper
                 }
             });
         }
-        public static void SeedPlaylist(ModelBuilder modelBuilder)
+        public static void SeedPlaylist(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Playlist>().HasData(new Playlist[]
             {
@@ -153,7 +153,7 @@ namespace MusicCollection.Helper
             });
         }
 
-        public static void SeedTrack(ModelBuilder modelBuilder)
+        public static void SeedTrack(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Track>().HasData(new Track[]
             {
@@ -161,29 +161,45 @@ namespace MusicCollection.Helper
                 {
                     Id=1,
                     Name="Love",
-                    PlaylistId=1
+                    Duration="2:32",
+                    PlaylistId=1,
+                    Rating = 1,
+                    CountOfReadings=10000,
+                    Text="Hello, very intresting. Goodbye"
                 },
                 new Track
                 {
                     Id=2,
                     Name="My country",
-                    PlaylistId=2
+                    Duration="3:32",
+                    PlaylistId=2,
+                    Rating = 5,
+                    CountOfReadings=100000,
+                    Text="Goodbye Poland"
                 },
                 new Track
                 {
                     Id=3,
                     Name="My little home",
-                    PlaylistId=1
+                    Duration="4:10",
+                    PlaylistId=1,
+                    Rating = 3,
+                    CountOfReadings=7500,
+                    Text="Hello my home, how are you?"
                 },
                 new Track
                 {
                     Id=4,
                     Name="Gopdbye! Hello!",
-                    PlaylistId=3
+                    Duration="1:50",
+                    PlaylistId=3,
+                    Rating = 5,
+                    CountOfReadings=75000,
+                    Text="Gopdbye! Hello!"
                 }
             });
         }
-        public static void SeedAlbum(ModelBuilder modelBuilder)
+        public static void SeedAlbum(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Album>().HasData(new Album[]
             {
@@ -193,7 +209,8 @@ namespace MusicCollection.Helper
                     Name="Loved by me",
                     DataCreate =new DateTime(2019,4,12),
                     ArtistId=1,
-                    GenreId=2
+                    GenreId=2,
+                    Rating=5
                 },
                 new Album
                 {
@@ -201,7 +218,8 @@ namespace MusicCollection.Helper
                     Name="Intresting world",
                     DataCreate =new DateTime(2017,2,17),
                     ArtistId=2,
-                    GenreId=1
+                    GenreId=1,
+                    Rating=3
                 },
                 new Album
                 {
@@ -209,7 +227,8 @@ namespace MusicCollection.Helper
                     Name="Ukraine the best",
                     DataCreate =new DateTime(2022,2,25),
                     ArtistId=1,
-                    GenreId=3
+                    GenreId=3,
+                    Rating=4
                 },
                 new Album
                 {
@@ -217,7 +236,8 @@ namespace MusicCollection.Helper
                     Name="Comeback",
                     DataCreate =new DateTime(2015,1,10),
                     ArtistId=4,
-                    GenreId=4
+                    GenreId=4,
+                    Rating=5
                 }
             });
         }
